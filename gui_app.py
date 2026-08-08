@@ -8,14 +8,14 @@ import db
 import search
 
 EMBEDDING_MODEL_ALIAS = "qwen3-embedding-0.6b"
-CHAT_MODEL_ALIAS = "qwen2.5-0.5b"
+CHAT_MODEL_ALIAS = "phi-3.5-mini"
 TOP_K = 3
 
 SYSTEM_PROMPT_TEMPLATE = (
-    "Sana verilen BAGLAM (context) disina cikma. "
-    "Sadece asagidaki baglamdaki bilgiyi kullanarak Turkce cevap ver. "
-    "Eger cevap baglamda yoksa, 'Bu bilgi elimdeki dokumanlarda yok' de. "
-    "Cevabinin sonunda hangi kaynak dosya(lar)dan yararlandigini belirt.\n\n"
+    "Sen kisa ve net cevaplar veren bir Turkce asistansin. "
+    "SADECE asagidaki BAGLAM icindeki bilgiyi kullan, baska hicbir sey ekleme. "
+    "Cevabini 2-3 cumleyle sinirla, tekrar etme. "
+    "Eger cevap baglamda yoksa, sadece 'Bu bilgi elimdeki dokumanlarda yok.' yaz, baska bir sey ekleme.\n\n"
     "BAGLAM:\n{context}"
 )
 
