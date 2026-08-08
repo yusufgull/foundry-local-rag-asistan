@@ -1,35 +1,12 @@
-"""
-main.py
--------
-Hafta 4 gorevi: "LLM Integration & Application Assembly"
-
-Bu, projenin CALISTIRILABILIR ana uygulamasidir. Kullaniciya konsoldan
-(CLI) soru sorma imkani verir:
-
-1) Kullanicinin sorusunu embed eder
-2) SQLite'taki chunk'lar arasindan en alakali olanlari bulur (search.py)
-3) Bulunan chunk'lari "context" olarak sistem prompt'una ekler
-4) Foundry Local'in sohbet (chat) modelinden, SADECE bu context'i
-   kullanarak cevap uretmesini ister
-5) Kaynagi (hangi dosyadan geldigini) de cevapla birlikte gosterir
-
-Onceden 'python ingest.py' calistirilmis ve knowledge_base.db
-doldurulmus olmali.
-
-Kullanim:
-    python main.py
-"""
-
 from foundry_local_sdk import Configuration, FoundryLocalManager
 
 import db
 import search
 
-# Kullanilacak modeller (kucuk, hizli - egitim/ogrenci projeleri icin uygun)
 EMBEDDING_MODEL_ALIAS = "qwen3-embedding-0.6b"
 CHAT_MODEL_ALIAS = "qwen2.5-0.5b"
 
-TOP_K = 3  # her soru icin kac chunk getirilecek
+TOP_K = 3
 
 SYSTEM_PROMPT_TEMPLATE = (
     "Sana verilen BAGLAM (context) disina cikma. "
@@ -41,7 +18,6 @@ SYSTEM_PROMPT_TEMPLATE = (
 
 
 def build_context(results) -> tuple[str, list[str]]:
-    """search.find_relevant() sonucundan prompt icin metin baglami ve kaynak listesi olusturur."""
     lines = []
     sources = []
     for score, chunk in results:
@@ -62,7 +38,6 @@ def main():
     print("=== Yerel RAG Soru-Cevap Asistani ===")
     print(f"Veritabaninda {db.count_chunks()} bilgi parcasi var.\n")
 
-    # --- Foundry Local SDK baslatiliyor ---
     config = Configuration(app_name="foundry_local_rag")
     FoundryLocalManager.initialize(config)
     manager = FoundryLocalManager.instance
@@ -95,15 +70,12 @@ def main():
         if not query or query.lower() == "quit":
             break
 
-        # 1) Soruyu embed et
         query_response = embedding_client.generate_embedding(query)
         query_embedding = query_response.data[0].embedding
 
-        # 2) En alakali chunk'lari bul
         results = search.find_relevant(query_embedding, all_chunks, top_k=TOP_K)
         context, sources = build_context(results)
 
-        # 3) Prompt'u olustur
         messages = [
             {
                 "role": "system",
@@ -112,7 +84,6 @@ def main():
             {"role": "user", "content": query},
         ]
 
-        # 4) Cevabi akan (streaming) sekilde yazdir
         print("Cevap: ", end="", flush=True)
         for chunk in chat_client.complete_streaming_chat(messages):
             if not chunk.choices:

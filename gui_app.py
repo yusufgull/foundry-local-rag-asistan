@@ -1,14 +1,3 @@
-"""
-gui_app.py
-----------
-Yerel RAG Asistani icin masaustu pencere uygulamasi (Tkinter ile).
-Python'un standart kutuphanesinde geldigi icin ekstra kurulum
-gerektirmez.
-
-Calistirma:
-    python gui_app.py
-"""
-
 import threading
 import tkinter as tk
 from tkinter import scrolledtext, messagebox
