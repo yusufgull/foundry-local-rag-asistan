@@ -1,0 +1,15 @@
+RAG (Retrieval-Augmented Generation) Nedir?
+
+RAG, bir dil modelinin cevap uretirken once ilgili bilgiyi bir dokuman
+kumesinden aramasini, sonra bu bilgiyi kullanarak cevap vermesini
+saglayan bir yontemdir. Uc adimdan olusur: Retrieve (getir), Augment
+(zenginlestir), Generate (uret).
+
+RAG kullanmanin en buyuk avantaji, modelin kendi ezberinden degil,
+verdigimiz gercek dokumanlardan cevap uretmesidir. Bu sayede model
+"hallucination" adi verilen yanlis/uydurma bilgi uretme sorununu
+azaltir ve verdigi cevaplarin kaynagini gosterebilir.
+
+RAG ozellikle kucuk ve ozel bir bilgi kumesi uzerinde calisan
+sohbet botlari, musteri destek asistanlari ve ic dokumantasyon
+arama sistemleri icin idealdir.

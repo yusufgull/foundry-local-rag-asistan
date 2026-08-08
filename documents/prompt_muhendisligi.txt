@@ -1,0 +1,14 @@
+Prompt Muhendisligi Temelleri
+
+Bir dil modeline verdigimiz talimatlarin kalitesi, aldigimiz cevabin
+kalitesini dogrudan etkiler. "System prompt" (sistem mesaji), modele
+nasil davranmasi gerektigini anlatan ozel bir talimat turudur.
+
+Bir RAG uygulamasinda sistem mesaji genellikle su kurallari icerir:
+sadece verilen baglami (context) kullan, baglamda olmayan bir seyi
+uydurma, eger cevap baglamda yoksa bunu acikca belirt, ve mumkunse
+hangi kaynaktan yararlandigini soyle.
+
+Bu kurallar sayesinde model, kendi ezberinden degil sadece bizim
+verdigimiz dokumanlardan cevap uretir. Bu da "hallucination" (uydurma
+bilgi) riskini onemli olcude azaltir.

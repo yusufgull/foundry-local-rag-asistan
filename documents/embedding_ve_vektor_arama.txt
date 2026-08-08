@@ -1,0 +1,15 @@
+Embedding ve Vektor Arama
+
+Embedding, bir metnin anlamini sayisal bir vektore (sayi dizisine)
+donusturme islemidir. Anlamca birbirine yakin iki metnin embedding
+vektorleri de birbirine yakin cikar.
+
+Iki vektorun ne kadar benzer oldugunu olcmek icin en cok kullanilan
+yontem "cosine similarity" (kosinus benzerligi) yontemidir. Sonuc 0
+ile 1 arasinda bir deger olur; 1'e yakin degerler yuksek benzerlik
+anlamina gelir.
+
+Bir RAG sisteminde once tum dokumanlar embedding'e cevrilip
+saklanir. Kullanici bir soru sordugunda, sorunun embedding'i
+hesaplanir ve saklanan dokuman embedding'leriyle karsilastirilarak
+en benzer (en alakali) parcalar bulunur.

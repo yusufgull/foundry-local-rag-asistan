@@ -1,0 +1,15 @@
+Microsoft Foundry Local Nedir?
+
+Foundry Local, yapay zeka modellerini bilgisayarinizda, internete
+baglanmadan calistirmanizi saglayan hafif bir calisma zamanidir
+(runtime). Bulut hesabina veya API anahtarina gerek yoktur.
+
+Foundry Local, kullanilan donanima (CPU, GPU veya NPU) gore en uygun
+model versiyonunu otomatik olarak secer ve indirir. Bir model
+kataloguna sahiptir; bu katalogdan embedding modelleri ve sohbet
+(chat) modelleri secilebilir.
+
+Python, C#, JavaScript ve Rust icin resmi SDK'lari vardir. Foundry
+Local'in sundugu API, OpenAI'nin API'siyle uyumludur; bu sayede
+OpenAI istemcisi kullanan mevcut kodlar kolayca Foundry Local'e
+yonlendirilebilir.

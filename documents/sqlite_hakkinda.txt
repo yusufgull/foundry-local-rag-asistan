@@ -1,0 +1,14 @@
+SQLite Hakkinda
+
+SQLite, ayri bir sunucu gerektirmeyen, tek bir dosyada calisan hafif
+bir veritabani motorudur. Kurulumu kolaydir ve dunyada en cok
+kullanilan veritabani motorlerinden biridir.
+
+Kucuk olcekli yerel projelerde (ornegin bu RAG asistaninda) SQLite,
+dokuman parcalarini ve bunlarin embedding vektorlerini saklamak icin
+idealdir. Ayri bir vektor veritabani kurmaya gerek kalmadan, basit
+bir tabloya metin ve embedding'i JSON formatinda yazip sonradan
+okuyabiliriz.
+
+Python'un standart kutuphanesinde sqlite3 modulu hazir gelir, bu
+yuzden ekstra bir kurulum gerekmez.

@@ -1,0 +1,9 @@
+# Windows icin:
+#   pip install foundry-local-sdk-winml openai
+#
+# macOS / Linux icin:
+#   pip install foundry-local-sdk openai
+#
+# Not: Sisteminize gore dogru paketi asagidaki yorumdan kaldirip kullanin.
+foundry-local-sdk
+openai
